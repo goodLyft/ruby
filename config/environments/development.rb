@@ -27,7 +27,7 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  # config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
 
@@ -53,4 +53,11 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.web_console.whitelisted_ips = '0.0.0.0/0'
+
+  # Mail config
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { address: '192.168.1.3', port: 1025}
+  config.action_mailer.default_url_options = { host: '192.168.1.3:3000'}
+  config.action_mailer.raise_delivery_errors = true
+
 end
